@@ -1,0 +1,10 @@
+nino;мальчик
+nina;девочка
+gato;кот
+perro;собака
+mujer;женщина
+bano;туалет
+salir;уходить
+cafe;кофе
+cocinera;кукухня
+sal;соль
