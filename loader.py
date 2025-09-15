@@ -22,7 +22,7 @@ class BaseLoader(typing.Protocol):
 class JsonLoader(BaseLoader):
 
     def __enter__(self) -> Anki:
-        path = pathlib.Path('data/words.json')
+        path = pathlib.Path('data', 'words.json')
         if path.exists():
             with path.open() as file_input:
                 words = json.load(file_input)
@@ -32,7 +32,7 @@ class JsonLoader(BaseLoader):
         return self.anki
 
     def __exit__(self, *args):
-        path = pathlib.Path('data/words.json')
+        path = pathlib.Path('data', 'words.json')
         with path.open('w') as file_output:
             words = dict(self.anki.get_all_words())
             json.dump(words, file_output, ensure_ascii=False)
@@ -41,7 +41,7 @@ class JsonLoader(BaseLoader):
 class TextLoader(BaseLoader):
 
     def __enter__(self) -> Anki:
-        path = pathlib.Path('data/words.txt')
+        path = pathlib.Path('data', 'words.txt')
         if path.exists():
             with path.open() as file_input:
                 # nino;мальчик
@@ -53,7 +53,7 @@ class TextLoader(BaseLoader):
         return self.anki
 
     def __exit__(self, *args):
-        path = pathlib.Path('data/words.txt')
+        path = pathlib.Path('data', 'words.txt')
         with path.open('w') as file_output:
             for word, translation in self.anki.get_all_words():
                 file_output.write(f'{word};{translation}\n')
