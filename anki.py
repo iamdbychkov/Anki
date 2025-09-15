@@ -12,6 +12,23 @@ class Anki:
         return string.strip().lower()
 
     def add_word(self, word: str, translation: str) -> Self:
+        """Добавляет слово в игру
+
+        Parameters
+        ---------
+        word : str
+            Слово для перевода
+        translation : str
+            Перевод слова
+
+        Returns
+        -------
+        Anki
+
+        Examples
+        -------
+        >>> anki.add_word('nino', 'мальчик')
+        """
         self._words[self.sanitize_input(word)] = self.sanitize_input(translation)
         return self
 
