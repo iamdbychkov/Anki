@@ -12,7 +12,7 @@ def get_loader(file_ext: str) -> typing.Type[BaseLoader]:
         return TextLoader
     elif file_ext == '.json':
         return JsonLoader
-    raise ValueError("Unknown file type")
+    raise ValueError('Unknown file type')
 
 
 if __name__ == '__main__':
